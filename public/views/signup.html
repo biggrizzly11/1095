@@ -1,0 +1,25 @@
+<div ng-controller="compController">
+	<title>Sign Up</title>
+	<p>This is the sign up page</p>
+	<form>
+		<input placeholder="Company Name" ng-model="comp.compName"></input><br>
+		<input placeholder="Address" ng-model="comp.address"></input><br>
+		<input placeholder="City" ng-model="comp.city"></input><br>
+		<input placeholder="State" ng-model="comp.state"></input><br>
+		<input placeholder="Zip" ng-model="comp.zip"></input><br>
+		<input placeholder="Phone" ng-model="comp.phone"></input><br>
+		<input placeholder="Email" ng-model="comp.email"></input><br>
+		<input placeholder="EIN" ng-model="comp.ein"></input><br>
+		<input placeholder="Password" ng-model="comp.password"></input><br>
+		<button ng-click="addComp(comp)">Submit</button>
+	</form>
+	<div>
+		<h2>Login</h2>
+		<form>
+			<input placeholder="Username"></input>
+			<input placeholder="Password"></input>
+			<button>Submit</button>
+		</form>
+	</div>
+
+</div>
