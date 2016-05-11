@@ -40,7 +40,7 @@ app.get('/loginFailure', function(req, res) {
 	res.send('Failded to Authenticate');
 });
 
-app.get('/getCurrentUser', compCtrl.getCurrentUser);
+app.get('/getCurrentUser', compCtrl.compRead);
 
 app.get('/loginSuccess', function(req, res) {
 	res.send('Successfully Authenticated');
@@ -86,6 +86,7 @@ app.get('/api/comp', compCtrl.compRead);
 app.put('/api/comp', compCtrl.compUpdate);
 app.delete('/api/comp', compCtrl.compDelete);
 app.post('/api/comp/:id', compCtrl.compAddEmp);
+app.get('/api/total/:id', compCtrl.getTotal);
 
 // Emp endpoints
 app.post('/api/emp', empCtrl.empCreate);

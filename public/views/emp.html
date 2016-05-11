@@ -12,16 +12,215 @@
 					<h2>Add New Employee</h2>
 					<p>This is the add employee page</p>
 					<form>
-						<input placeholder="Company Name" ng-model="comp.compName"></input><br>
-						<input placeholder="Address" ng-model="comp.address"></input><br>
-						<input placeholder="City" ng-model="comp.city"></input><br>
-						<input placeholder="State" ng-model="comp.state"></input><br>
-						<input placeholder="Zip" ng-model="comp.zip"></input><br>
-						<input placeholder="Phone" ng-model="comp.phone"></input><br>
-						<input placeholder="Email" ng-model="comp.email"></input><br>
-						<input placeholder="EIN" ng-model="comp.ein"></input><br>
-						<input placeholder="Password" ng-model="comp.password"></input><br>
-						<button ng-click="addComp(comp)">Submit</button>
+						<input placeholder="Name of Employee" ng-model="emp.name"></input><br>
+						<input placeholder="Street Address (including apartment no.)" ng-model="emp.address"></input><br>
+						<input placeholder="City or Town" ng-model="emp.city"></input><br>
+						<input placeholder="State" ng-model="emp.state"></input><br>
+						<input placeholder="Zip" ng-model="emp.zip"></input><br>
+						<input placeholder="Phone" ng-model="emp.phone"></input><br>
+						<input placeholder="Social Security Number" ng-model="emp.email"></input><br>
+				
+						<div>
+							<h2>Part II</h2>
+							<input placeholder="Plan Start Month (Enter 2-digit number)" ng-model="emp.planstartmonth"></input><br>
+							</br>
+							<table>
+								<tr>
+									<th></th>
+									<th>Offer of Coverage</th>
+									<th>Employee Share</th>
+									<th>Section 4980H</th>
+								</tr>
+								
+							  <tr>
+							  	<th>All 12 Months</th>
+							    <td><input placeholder="All 12" ng-model="emp.box14all"></input></td>
+							    <td><input placeholder="All 12" ng-model="emp.box15all"></input></td>
+							    <td><input placeholder="All 12" ng-model="emp.box16all"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Jan</th>
+							 	<td><input placeholder="Jan" ng-model="emp.box14jan"></input></td>
+							    <td><input placeholder="Jan" ng-model="emp.box15jan"></input></td>
+							    <td><input placeholder="Jan" ng-model="emp.box16jan"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Feb</th>
+							    <td><input placeholder="Feb" ng-model="emp.box14feb"></input></td>
+							    <td><input placeholder="Feb" ng-model="emp.box15feb"></input></td>
+							    <td><input placeholder="Feb" ng-model="emp.box16feb"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Mar</th>
+							    <td><input placeholder="Mar" ng-model="emp.box14mar"></input></td>
+							    <td><input placeholder="Mar" ng-model="emp.box15mar"></input></td>
+							    <td><input placeholder="Mar" ng-model="emp.box16mar"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Apr</th>
+							 	<td><input placeholder="Apr" ng-model="emp.box14apr"></input></td>
+							    <td><input placeholder="Apr" ng-model="emp.box15apr"></input></td>
+							    <td><input placeholder="Apr" ng-model="emp.box16apr"></input></td>
+							  </tr>
+							  <tr>
+							  <th>May</th>
+							    <td><input placeholder="May" ng-model="emp.box14may"></input></td>
+							    <td><input placeholder="May" ng-model="emp.box15may"></input></td>
+							    <td><input placeholder="May" ng-model="emp.box16may"></input></td>
+							  </tr>
+							  <tr>
+							  <th>June</th>
+							    <td><input placeholder="June" ng-model="emp.box14june"></input></td>
+							    <td><input placeholder="June" ng-model="emp.box15june"></input></td>
+							    <td><input placeholder="June" ng-model="emp.box16june"></input></td>
+							  </tr>
+							  <tr>
+							  <th>July</th>
+							 	<td><input placeholder="July" ng-model="emp.box14july"></input></td>
+							    <td><input placeholder="July" ng-model="emp.box15july"></input></td>
+							    <td><input placeholder="July" ng-model="emp.box16july"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Aug</th>
+							    <td><input placeholder="Aug" ng-model="emp.box14aug"></input></td>
+							    <td><input placeholder="Aug" ng-model="emp.box15aug"></input></td>
+							    <td><input placeholder="Aug" ng-model="emp.box16aug"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Sept</th>
+							    <td><input placeholder="Sept" ng-model="emp.box14sept"></input></td>
+							    <td><input placeholder="Sept" ng-model="emp.box15sept"></input></td>
+							    <td><input placeholder="Sept" ng-model="emp.box16sept"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Oct</th>
+							 	<td><input placeholder="Oct" ng-model="emp.box14oct"></input></td>
+							    <td><input placeholder="Oct" ng-model="emp.box15oct"></input></td>
+							    <td><input placeholder="Oct" ng-model="emp.box16oct"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Nov</th>
+							    <td><input placeholder="Nov" ng-model="emp.box14nov"></input></td>
+							    <td><input placeholder="Nov" ng-model="emp.box15nov"></input></td>
+							    <td><input placeholder="Nov" ng-model="emp.box16nov"></input></td>
+							  </tr>
+							   <tr>
+							   <th>Dec</th>
+							    <td><input placeholder="Dec" ng-model="emp.box14dec"></input></td>
+							    <td><input placeholder="Dec" ng-model="emp.box15dec"></input></td>
+							    <td><input placeholder="Dec" ng-model="emp.box16dec"></input></td>
+							  </tr>
+							</table>
+						</div><br>
+
+						<div>
+							<h2>Part III</h2>
+							<table>
+								<tr>
+									<th></th>
+									<th>Name of Covered Individual</th>
+									<th>Name of Covered Individual</th>
+									<th>Name of Covered Individual</th>
+								</tr>
+							  <tr>
+							  	<th>Name</th>
+							    <td><input placeholder="Name" ng-model="emp.box17aname"></input></td>
+							    <td><input placeholder="Name" ng-model="emp.box18aname"></input></td>
+							    <td><input placeholder="Name" ng-model="emp.box19aname"></input></td>
+							  </tr>
+							    <tr>
+							  	<th>SSN</th>
+							    <td><input placeholder="SSN" ng-model="emp.box17bssn"></input></td>
+							    <td><input placeholder="SSN" ng-model="emp.box18bssn"></input></td>
+							    <td><input placeholder="SSN" ng-model="emp.box19bssn"></input></td>
+							  </tr>
+							    <tr>
+							  	<th>Date of Birth</th>
+							    <td><input placeholder="DOB" ng-model="emp.box17cdob"></input></td>
+							    <td><input placeholder="DOB" ng-model="emp.box18cdob"></input></td>
+							    <td><input placeholder="DOB" ng-model="emp.box19cdob"></input></td>
+							  </tr>
+							  <tr>
+							  	<th>All 12 Months</th>
+							    <td><input placeholder="All 12" ng-model="emp.box17dall"></input></td>
+							    <td><input placeholder="All 12" ng-model="emp.box18dall"></input></td>
+							    <td><input placeholder="All 12" ng-model="emp.box19dall"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Jan</th>
+							 	<td><input placeholder="Jan" ng-model="emp.box17djan"></input></td>
+							    <td><input placeholder="Jan" ng-model="emp.box18djan"></input></td>
+							    <td><input placeholder="Jan" ng-model="emp.box19djan"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Feb</th>
+							    <td><input placeholder="Feb" ng-model="emp.box17dfeb"></input></td>
+							    <td><input placeholder="Feb" ng-model="emp.box18dfeb"></input></td>
+							    <td><input placeholder="Feb" ng-model="emp.box19dfeb"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Mar</th>
+							    <td><input placeholder="Mar" ng-model="emp.box17dmar"></input></td>
+							    <td><input placeholder="Mar" ng-model="emp.box18dmar"></input></td>
+							    <td><input placeholder="Mar" ng-model="emp.box19dmar"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Apr</th>
+							 	<td><input placeholder="Apr" ng-model="emp.box17dapr"></input></td>
+							    <td><input placeholder="Apr" ng-model="emp.box18dapr"></input></td>
+							    <td><input placeholder="Apr" ng-model="emp.box19dapr"></input></td>
+							  </tr>
+							  <tr>
+							  <th>May</th>
+							    <td><input placeholder="May" ng-model="emp.box17dmay"></input></td>
+							    <td><input placeholder="May" ng-model="emp.box18dmay"></input></td>
+							    <td><input placeholder="May" ng-model="emp.box19dmay"></input></td>
+							  </tr>
+							  <tr>
+							  <th>June</th>
+							    <td><input placeholder="June" ng-model="emp.box17djune"></input></td>
+							    <td><input placeholder="June" ng-model="emp.box18djune"></input></td>
+							    <td><input placeholder="June" ng-model="emp.box19djune"></input></td>
+							  </tr>
+							  <tr>
+							  <th>July</th>
+							 	<td><input placeholder="July" ng-model="emp.box17djuly"></input></td>
+							    <td><input placeholder="July" ng-model="emp.box18djuly"></input></td>
+							    <td><input placeholder="July" ng-model="emp.box19djuly"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Aug</th>
+							    <td><input placeholder="Aug" ng-model="emp.box17daug"></input></td>
+							    <td><input placeholder="Aug" ng-model="emp.box18daug"></input></td>
+							    <td><input placeholder="Aug" ng-model="emp.box19daug"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Sept</th>
+							    <td><input placeholder="Sept" ng-model="emp.box17dsept"></input></td>
+							    <td><input placeholder="Sept" ng-model="emp.box18dsept"></input></td>
+							    <td><input placeholder="Sept" ng-model="emp.box19dsept"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Oct</th>
+							 	<td><input placeholder="Oct" ng-model="emp.box17doct"></input></td>
+							    <td><input placeholder="Oct" ng-model="emp.box18doct"></input></td>
+							    <td><input placeholder="Oct" ng-model="emp.box19doct"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Nov</th>
+							    <td><input placeholder="Nov" ng-model="emp.box17dnov"></input></td>
+							    <td><input placeholder="Nov" ng-model="emp.box18dnov"></input></td>
+							    <td><input placeholder="Nov" ng-model="emp.box19dnov"></input></td>
+							  </tr>
+							   <tr>
+							   <th>Dec</th>
+							    <td><input placeholder="Dec" ng-model="emp.box17ddec"></input></td>
+							    <td><input placeholder="Dec" ng-model="emp.box18ddec"></input></td>
+							    <td><input placeholder="Dec" ng-model="emp.box19ddec"></input></td>
+							  </tr>
+							</table>
+						</div>
+						<button ng-click="addEmp(emp)">Submit</button>
 					</form>
 				</div>
             </div>

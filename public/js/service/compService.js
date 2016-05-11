@@ -26,4 +26,12 @@ angular.module('app')
 			});
 		};
 
+		this.addEmp = function(emp) {
+			return $http ({
+				method: 'POST',
+				url: '/api/emp',
+				data: emp
+			});
+		};
+
 	});

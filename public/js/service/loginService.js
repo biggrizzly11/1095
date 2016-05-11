@@ -7,6 +7,8 @@ angular.module('app')
 				method: 'POST',
 				url: '/login',
 				data: user
+			}).then(function(res){
+				console.log(res.data);
 			});
 		};
 

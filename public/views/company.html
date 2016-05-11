@@ -3,13 +3,11 @@
 <div class="container content-md ">
          <div class="row">
             <div class="col-md-12">
-               	<div>
+               	<div ng-controller="loginController">
 					<h2>Company Page</h2>
-						<form>
-							<input placeholder="Username"></input>
-							<input placeholder="Password"></input>
-							<button>Submit</button>
-						</form>
+					{{loggedIn}}
+					{{tests}}
+					{{test}}
 				</div>
             </div>
         </div>

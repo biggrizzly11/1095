@@ -15,7 +15,12 @@ module.exports = {
 
 	compRead: function(req, res) {
 		Comp.find({})
-			.populate({path: 'emp', select: 'name address _id'})
+			.populate(
+				{path: 'emp', select: '_id'}
+				)
+			.populate(
+					{path: 'emp', select: 'name'}
+				)
 			.exec(function(err, s) {
 				if (err) {
 				res.status(500).json(err);
@@ -67,6 +72,27 @@ module.exports = {
 		} else {
 			res.status(403).send('forbidden');
 		}
+	},
+
+	getTotal: function(req, res) {
+		Comp.findById(req.params.id, function(err, s) {
+			if (err) {
+				res.status(500).json(err);
+			} else {
+				// console.log(s.emp);
+				// var num = 0;
+				// var len = s.emp.length;
+				// console.log(len);
+				// for (var i = 0; i < len; i++) {
+				// 	console.log(num);
+				// 	if (len[i] === false) {
+				// 		num ++;
+				// 		console.log(num);
+				// 	}
+				// }
+				res.status(200).json(s.emp.length);
+			}
+		});
 	}
 
 };

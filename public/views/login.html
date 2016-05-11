@@ -3,7 +3,7 @@
 <div class="container content-md ">
          <div class="row">
             <div class="col-md-12">
-               	<div>
+               <!-- 	<div>
 					<h2>Login</h2>
 						<form>
 							<input placeholder="Username"></input>
@@ -11,7 +11,19 @@
 							<button><a ui-sref="company">Submit</a></button>
 
 						</form>
-						<!-- <a ui-sref="company">This is the compnay page</a> -->
+				</div> -->
+
+				<div ng-controller="loginController">
+				<title>Login</title>
+				<p>Login</p>
+
+					<form>
+						<input placeholder="Username" ng-model="user.username"></input>
+						<input placeholder="Password" ng-model="user.password"></input>
+						<a ui-sref="company"><button ng-click="postLogin(user)">Login</button></a>
+						{{test}}
+						{{emp}}
+					</form>
 				</div>
-            </div>
         </div>
+</div>

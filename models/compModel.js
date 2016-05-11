@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
+// var Emp = require('empModel');
 
 var compSchema = new mongoose.Schema({
 	compName: {type: String},

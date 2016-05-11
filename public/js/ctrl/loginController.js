@@ -2,6 +2,7 @@ angular.module('app')
 	.controller('loginController', function($scope, $http, loginService) {
 
 		 $scope.loggedIn = false;
+		 $scope.tests = "test";
 
 		// $scope.postLogin = function(user) {
 		// 	// console.log(user);
@@ -25,13 +26,13 @@ angular.module('app')
 			loginService.postLogin(user).then(function(res) {
 				$scope.test = res.data.compName;
 				$scope.emp = res.data.emp;
-				console.log(res.data.emp);
+				// console.log(res);
 
 				// console.log(res.data);
-				console.log('loggedIn should be false ' + $scope.loggedIn);
+				// console.log('loggedIn should be false ' + $scope.loggedIn);
 				if (res) {
 					$scope.loggedIn = true;
-						console.log('loggedIn should be true ' + $scope.loggedIn);
+						// console.log('loggedIn should be true ' + $scope.loggedIn);
 				} else {
 					$scope.loggedIn = false;
 				}
