@@ -15,6 +15,18 @@ angular.module('app', ['ui.router'])
 			.state('signup', {
 				url: '/signup',
 				templateUrl: './views/signup.html'
+			})
+			.state('login', {
+				url: '/login',
+				templateUrl: './views/login.html'
+			})
+			.state('emp', {
+				url: '/emp',
+				templateUrl: './views/emp.html'
+			})
+			.state('forms', {
+				url: '/forms',
+				templateUrl: './views/forms.html'
 			});
 
 	});

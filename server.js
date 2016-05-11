@@ -30,7 +30,7 @@ app.use(passport.session());
 
 app.post('/login', 
 	passport.authenticate('local', {
-		successRedirect: '/loginSuccess',
+		successRedirect: '/getCurrentUser',
 		failureRedirect: '/loginFailure'
 	})
 );
@@ -40,16 +40,10 @@ app.get('/loginFailure', function(req, res) {
 	res.send('Failded to Authenticate');
 });
 
-app.get('/loginSuccess', function(req, res) {
-	compSchema.find(req.params, req.body.id, function(err, s) {
-		if (err) {
-			res.status(500).json(err);
-		} else {
-			res.status(200).json(s);
-		}
-	});
+app.get('/getCurrentUser', compCtrl.getCurrentUser);
 
-	// res.send('Successfully Authenticated');
+app.get('/loginSuccess', function(req, res) {
+	res.send('Successfully Authenticated');
 });
 
 passport.serializeUser(function(user, done) {

@@ -1,0 +1,45 @@
+/*Home*/
+.homeBg {
+	width: 100%;
+	height: 250px;
+	background-color: blue;
+	padding-left: 500px;
+	background-image: url("./img/bg.jpg");
+	margin-top: -40px;
+}
+
+.text {
+	color: blue;
+}
+
+.homeTitle {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+/*Footer*/
+
+.footer {
+	text-align: right;
+	background-color: #333;
+	bottom: 0;
+
+}
+
+.socialIcon {
+	margin-right: 50px;
+}
+
+.social {
+	display: inline-block;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/*Other*/
+
+.margin-bottom-20 {
+	margin-bottom: 20px;
+}

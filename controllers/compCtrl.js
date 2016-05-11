@@ -60,6 +60,15 @@ module.exports = {
 		});
 	},
 
+	getCurrentUser: function(req, res) {
+		// console.log(req);
+		if (req.user) {
+			res.status(200).send(req.user);
+		} else {
+			res.status(403).send('forbidden');
+		}
+	}
+
 };
 
 
