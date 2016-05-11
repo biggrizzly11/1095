@@ -1,5 +1,5 @@
 angular.module('app')
-	.controller('loginController', function($scope, $http, loginService) {
+	.controller('loginController', function($scope, loginService, $uibModal) {
 
 		 $scope.loggedIn = false;
 		 $scope.tests = "test";
@@ -38,5 +38,12 @@ angular.module('app')
 				}
 			});
 		};
+
+		$scope.modalLogin = function() {
+			var modalInstance = $uibModal.open({
+			templateUrl: '../views/loginModal.html'
+		});
+	};
+		
 
 	});

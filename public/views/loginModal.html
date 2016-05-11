@@ -1,6 +1,11 @@
-<my-header></my-header>
-
-<div class="container content-md ">
+<form>
+	<input placeholder="Username" ng-model="user.username"></input>
+	<input placeholder="Password" ng-model="user.password"></input>
+	<a ui-sref="company"><button ng-click="postLogin(user)">Login</button></a>
+	{{test}}
+	{{emp}}
+</form>
+<!-- <div class="container content-md ">
          <div class="row">
             <div class="col-md-12">
 				<div ng-controller="loginController">
@@ -15,8 +20,7 @@
 						{{emp}}
 					</form>
 
-    				<button type="button" class="btn btn-default" ng-click="modalLogin()">Open me!</button>
 
 				</div>
         </div>
-</div>
+</div> -->
