@@ -21,11 +21,13 @@ angular.module('app')
 			});
 		};
 
+		var emp = {}; 
 		$scope.addEmp = function(emp) {
 			console.log(emp);
 			compService.addEmp(emp).then(function(emp) {
-				alert('Congrats ');
+				// alert('Congrats ');
 			});
 		};
+
 
 	});

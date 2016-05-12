@@ -4,36 +4,41 @@
          <div class="row">
             <div class="col-md-6">
 
-
-            	<!-- <ul class="nav nav-tabs">
-					  <li class="active"><a data-toggle="tab" href="#help">Home</a></li>
-					  <li><a data-toggle="tab" href="#help1">Menu 1</a></li>
-					  <li><a data-toggle="tab" href="#help2">Menu 2</a></li>
-				</ul>
-
-				<div class="tab-content">
-				  <div id="help" class="tab-pane fade in active">
-				    <h3>HOME</h3>
-				    <p>Some content.</p>
-				  </div>
-				  <div id="help1" class="tab-pane fade">
-				    <h3>Menu 1</h3>
-				    <p>Some content in menu 1.</p>
-				  </div>
-				  <div id="help2" class="tab-pane fade">
-				    <h3>Menu 2</h3>
-				    <p>Some content in menu 2.</p>
-				  </div>
-				</div>
- -->
                 <h1 class="home1">Instructions for Adding a New Employee</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam, et imperdiet sem. Nam vulputate odio tortor.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam, et imperdiet sem. Nam vulputate odio tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam, et imperdiet sem. Nam vulputate odio tortor.</p> <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam</p> <br>
 
                  <uib-tabset active="activeJustified" justified="true">
-					    <uib-tab index="0" heading="Part I">Part One Instructions</uib-tab>
-					    <uib-tab index="1" heading="Part II">Part Two Instructions</uib-tab>
-					    <uib-tab index="2" heading="Part III">Part Three Instructions</uib-tab>
+					    <uib-tab index="0" heading="Part I">
+					    	<ul class="empPartI">
+					    		<li class="empPartIli">Name - Enter full name</li>
+					    		<li class="empPartIli">Address - Enter full address, make sure to include the apartment no.</li>
+					    		<li class="empPartIli">City - Enter applicable city</li>
+					    		<li class="empPartIli">State - Enter applicable state</li>
+					    		<li class="empPartIli">Zip - Enter applicable zip</li>
+					    		<li class="empPartIli">Phone - Enter phone with dashes</li>
+					    		<li class="empPartIli">Social Security Number - Enter SSN with dashes</li>
+					    	</ul>
+					    </uib-tab>
+					    <uib-tab index="1" heading="Part II">
+					    	<ul class="empPartII">
+					    		<li class="empPartIIli">Health plan start month - Enter a 2-digit number for start month. For example if the plan started in January, enter 01.</li>
+					    		<li class="empPartIIli">Offer of Coverage - Enter one of the following codes "1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I" for all applicable boxes</li>
+					    		<li class="empPartIIli">Employee Share - Enter the share of lowest cost monthly premium</li>
+					    		<li class="empPartIIli">Applicable Section 4980H Safe Harbor - Employee offer and coverage of section 4980H Safe Harbor Code.  The code must be entered as one of the following "2A, 2B, 2C, 2D, 2E, 2F, 2G, 2HI"</li>
+					    	</ul>
+					    </uib-tab>
+					    <uib-tab index="2" heading="Part III">
+					    	<div class="empPartIII">
+					    		<h3>If Employer provided self-insured coverage</h3>
+					    	<ul>
+					    		<li class="empPartIIIli">Name - Enter full name</li>
+					    		<li class="empPartIIIli">Social Security Number - Enter SSN with dashes </li>
+					    		<li class="empPartIIIli">Date of Birth - Enter if SSN was not avaliable</li>
+					    		<li class="empPartIIIli">Covered Months - Enter an "X" for all applicable fields</li>
+					    	</ul>
+					    	</div>
+					    </uib-tab>
 					   <!--  <uib-tab index="3" heading="Long Justified">More Content</uib-tab> -->
   				</uib-tabset>
 
@@ -61,7 +66,7 @@
 							<h2>Part II</h2>
 							<hr>
 							<hr>
-							<input class="empInput" placeholder="Plan Start Month (Enter 2-digit number)" ng-model="emp.planstartmonth"></input><br>
+							<input uib-popover="Please enter plan start month With a 2-digit number (Ex: If started in Jan, enter 01)" popover-trigger="mouseenter" class="empInput" placeholder="Plan Start Month (Enter 2-digit number)" ng-model="emp.planstartmonth"></input><br>
 							</br>
 							<table>
 								<tr>
@@ -73,81 +78,81 @@
 				
 							  <tr>
 							  	<th>All 12 Months</th>
-							    <td><input class="empInput" placeholder="All 12" ng-model="emp.box14all"></input></td>
-							    <td><input class="empInput" placeholder="All 12" ng-model="emp.box15all"></input></td>
-							    <td><input class="empInput" placeholder="All 12" ng-model="emp.box16all"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="emp.box14all"></input></td>
+							    <td><input uib-popover="Enter the total share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="emp.box15all"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="emp.box16all"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Jan</th>
-							 	<td><input class="empInput" placeholder="Jan" ng-model="emp.box14jan"></input></td>
-							    <td><input class="empInput" placeholder="Jan" ng-model="emp.box15jan"></input></td>
-							    <td><input class="empInput" placeholder="Jan" ng-model="emp.box16jan"></input></td>
+							 	<td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="emp.box14jan"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="emp.box15jan"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="emp.box16jan"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Feb</th>
-							    <td><input class="empInput" placeholder="Feb" ng-model="emp.box14feb"></input></td>
-							    <td><input class="empInput" placeholder="Feb" ng-model="emp.box15feb"></input></td>
-							    <td><input class="empInput" placeholder="Feb" ng-model="emp.box16feb"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="emp.box14feb"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="emp.box15feb"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="emp.box16feb"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Mar</th>
-							    <td><input class="empInput" placeholder="Mar" ng-model="emp.box14mar"></input></td>
-							    <td><input class="empInput" placeholder="Mar" ng-model="emp.box15mar"></input></td>
-							    <td><input class="empInput" placeholder="Mar" ng-model="emp.box16mar"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="emp.box14mar"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="emp.box15mar"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="emp.box16mar"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Apr</th>
-							 	<td><input class="empInput" placeholder="Apr" ng-model="emp.box14apr"></input></td>
-							    <td><input class="empInput" placeholder="Apr" ng-model="emp.box15apr"></input></td>
-							    <td><input class="empInput" placeholder="Apr" ng-model="emp.box16apr"></input></td>
+							 	<td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="emp.box14apr"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="emp.box15apr"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="emp.box16apr"></input></td>
 							  </tr>
 							  <tr>
 							  <th>May</th>
-							    <td><input class="empInput" placeholder="May" ng-model="emp.box14may"></input></td>
-							    <td><input class="empInput" placeholder="May" ng-model="emp.box15may"></input></td>
-							    <td><input class="empInput" placeholder="May" ng-model="emp.box16may"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="emp.box14may"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="emp.box15may"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="emp.box16may"></input></td>
 							  </tr>
 							  <tr>
 							  <th>June</th>
-							    <td><input class="empInput" placeholder="June" ng-model="emp.box14june"></input></td>
-							    <td><input class="empInput" placeholder="June" ng-model="emp.box15june"></input></td>
-							    <td><input class="empInput" placeholder="June" ng-model="emp.box16june"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="emp.box14june"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="emp.box15june"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="emp.box16june"></input></td>
 							  </tr>
 							  <tr>
 							  <th>July</th>
-							 	<td><input class="empInput" placeholder="July" ng-model="emp.box14july"></input></td>
-							    <td><input class="empInput" placeholder="July" ng-model="emp.box15july"></input></td>
-							    <td><input class="empInput" placeholder="July" ng-model="emp.box16july"></input></td>
+							 	<td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="emp.box14july"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="emp.box15july"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="emp.box16july"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Aug</th>
-							    <td><input class="empInput" placeholder="Aug" ng-model="emp.box14aug"></input></td>
-							    <td><input class="empInput" placeholder="Aug" ng-model="emp.box15aug"></input></td>
-							    <td><input class="empInput" placeholder="Aug" ng-model="emp.box16aug"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="emp.box14aug"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="emp.box15aug"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="emp.box16aug"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Sept</th>
-							    <td><input class="empInput" placeholder="Sept" ng-model="emp.box14sept"></input></td>
-							    <td><input class="empInput" placeholder="Sept" ng-model="emp.box15sept"></input></td>
-							    <td><input class="empInput" placeholder="Sept" ng-model="emp.box16sept"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="emp.box14sept"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="emp.box15sept"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="emp.box16sept"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Oct</th>
-							 	<td><input class="empInput" placeholder="Oct" ng-model="emp.box14oct"></input></td>
-							    <td><input class="empInput" placeholder="Oct" ng-model="emp.box15oct"></input></td>
-							    <td><input class="empInput" placeholder="Oct" ng-model="emp.box16oct"></input></td>
+							 	<td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="emp.box14oct"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="emp.box15oct"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="emp.box16oct"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Nov</th>
-							    <td><input class="empInput" placeholder="Nov" ng-model="emp.box14nov"></input></td>
-							    <td><input class="empInput" placeholder="Nov" ng-model="emp.box15nov"></input></td>
-							    <td><input class="empInput" placeholder="Nov" ng-model="emp.box16nov"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="emp.box14nov"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="emp.box15nov"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="emp.box16nov"></input></td>
 							  </tr>
 							   <tr>
 							   <th>Dec</th>
-							    <td><input class="empInput" placeholder="Dec" ng-model="emp.box14dec"></input></td>
-							    <td><input class="empInput" placeholder="Dec" ng-model="emp.box15dec"></input></td>
-							    <td><input class="empInput"placeholder="Dec" ng-model="emp.box16dec"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I'." popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="emp.box14dec"></input></td>
+							    <td><input uib-popover="Enter the share of lowest cost monthly premium" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="emp.box15dec"></input></td>
+							    <td><input uib-popover="Enter one of the following codes '2A, 2B, 2C, 2D, 2E, 2F, 2G, 2H, 2I' if applicable." popover-trigger="mouseenter" class="empInput"placeholder="Dec" ng-model="emp.box16dec"></input></td>
 							  </tr>
 							</table>
 						</div><br>
@@ -177,87 +182,87 @@
 							  </tr>
 							    <tr>
 							  	<th>Date of Birth</th>
-							    <td><input class="empInput" placeholder="DOB" ng-model="emp.box17cdob"></input></td>
-							    <td><input class="empInput" placeholder="DOB" ng-model="emp.box18cdob"></input></td>
-							    <td><input class="empInput" placeholder="DOB" ng-model="emp.box19cdob"></input></td>
+							    <td><input uib-popover="Enter a date of birth if SSN is not available" popover-trigger="mouseenter" class="empInput" placeholder="DOB" ng-model="emp.box17cdob"></input></td>
+							    <td><input uib-popover="Enter a date of birth if SSN is not available" popover-trigger="mouseenter" class="empInput" placeholder="DOB" ng-model="emp.box18cdob"></input></td>
+							    <td><input uib-popover="Enter a date of birth if SSN is not available" popover-trigger="mouseenter" class="empInput" placeholder="DOB" ng-model="emp.box19cdob"></input></td>
 							  </tr>
 							  <tr>
 							  	<th>All 12 Months</th>
-							    <td><input class="empInput" placeholder="All 12" ng-model="emp.box17dall"></input></td>
-							    <td><input class="empInput" placeholder="All 12" ng-model="emp.box18dall"></input></td>
-							    <td><input class="empInput" placeholder="All 12" ng-model="emp.box19dall"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="emp.box17dall"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="emp.box18dall"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="emp.box19dall"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Jan</th>
-							 	<td><input class="empInput" placeholder="Jan" ng-model="emp.box17djan"></input></td>
-							    <td><input class="empInput" placeholder="Jan" ng-model="emp.box18djan"></input></td>
-							    <td><input class="empInput" placeholder="Jan" ng-model="emp.box19djan"></input></td>
+							 	<td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="emp.box17djan"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="emp.box18djan"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="emp.box19djan"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Feb</th>
-							    <td><input class="empInput" placeholder="Feb" ng-model="emp.box17dfeb"></input></td>
-							    <td><input class="empInput" placeholder="Feb" ng-model="emp.box18dfeb"></input></td>
-							    <td><input class="empInput" placeholder="Feb" ng-model="emp.box19dfeb"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="emp.box17dfeb"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="emp.box18dfeb"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="emp.box19dfeb"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Mar</th>
-							    <td><input class="empInput" placeholder="Mar" ng-model="emp.box17dmar"></input></td>
-							    <td><input class="empInput" placeholder="Mar" ng-model="emp.box18dmar"></input></td>
-							    <td><input class="empInput" placeholder="Mar" ng-model="emp.box19dmar"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="emp.box17dmar"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="emp.box18dmar"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="emp.box19dmar"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Apr</th>
-							 	<td><input class="empInput" placeholder="Apr" ng-model="emp.box17dapr"></input></td>
-							    <td><input class="empInput" placeholder="Apr" ng-model="emp.box18dapr"></input></td>
-							    <td><input class="empInput" placeholder="Apr" ng-model="emp.box19dapr"></input></td>
+							 	<td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="emp.box17dapr"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="emp.box18dapr"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="emp.box19dapr"></input></td>
 							  </tr>
 							  <tr>
 							  <th>May</th>
-							    <td><input class="empInput" placeholder="May" ng-model="emp.box17dmay"></input></td>
-							    <td><input class="empInput" placeholder="May" ng-model="emp.box18dmay"></input></td>
-							    <td><input class="empInput" placeholder="May" ng-model="emp.box19dmay"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="emp.box17dmay"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="emp.box18dmay"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="emp.box19dmay"></input></td>
 							  </tr>
 							  <tr>
 							  <th>June</th>
-							    <td><input class="empInput" placeholder="June" ng-model="emp.box17djune"></input></td>
-							    <td><input class="empInput" placeholder="June" ng-model="emp.box18djune"></input></td>
-							    <td><input class="empInput"  placeholder="June" ng-model="emp.box19djune"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="emp.box17djune"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="emp.box18djune"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput"  placeholder="June" ng-model="emp.box19djune"></input></td>
 							  </tr>
 							  <tr>
 							  <th>July</th>
-							 	<td><input class="empInput" placeholder="July" ng-model="emp.box17djuly"></input></td>
-							    <td><input class="empInput" placeholder="July" ng-model="emp.box18djuly"></input></td>
-							    <td><input class="empInput" placeholder="July" ng-model="emp.box19djuly"></input></td>
+							 	<td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="emp.box17djuly"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="emp.box18djuly"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="emp.box19djuly"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Aug</th>
-							    <td><input class="empInput" placeholder="Aug" ng-model="emp.box17daug"></input></td>
-							    <td><input class="empInput" placeholder="Aug" ng-model="emp.box18daug"></input></td>
-							    <td><input class="empInput" placeholder="Aug" ng-model="emp.box19daug"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="emp.box17daug"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="emp.box18daug"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="emp.box19daug"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Sept</th>
-							    <td><input class="empInput" placeholder="Sept" ng-model="emp.box17dsept"></input></td>
-							    <td><input class="empInput" placeholder="Sept" ng-model="emp.box18dsept"></input></td>
-							    <td><input class="empInput" placeholder="Sept" ng-model="emp.box19dsept"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="emp.box17dsept"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="emp.box18dsept"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="emp.box19dsept"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Oct</th>
-							 	<td><input class="empInput" placeholder="Oct" ng-model="emp.box17doct"></input></td>
-							    <td><input class="empInput" placeholder="Oct" ng-model="emp.box18doct"></input></td>
-							    <td><input class="empInput" placeholder="Oct" ng-model="emp.box19doct"></input></td>
+							 	<td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="emp.box17doct"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="emp.box18doct"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="emp.box19doct"></input></td>
 							  </tr>
 							  <tr>
 							  <th>Nov</th>
-							    <td><input class="empInput" placeholder="Nov" ng-model="emp.box17dnov"></input></td>
-							    <td><input class="empInput" placeholder="Nov" ng-model="emp.box18dnov"></input></td>
-							    <td><input class="empInput" placeholder="Nov" ng-model="emp.box19dnov"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="emp.box17dnov"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="emp.box18dnov"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="emp.box19dnov"></input></td>
 							  </tr>
 							   <tr>
 							   <th>Dec</th>
-							    <td><input class="empInput" placeholder="Dec" ng-model="emp.box17ddec"></input></td>
-							    <td><input class="empInput" placeholder="Dec" ng-model="emp.box18ddec"></input></td>
-							    <td><input class="empInput" placeholder="Dec" ng-model="emp.box19ddec"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="emp.box17ddec"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="emp.box18ddec"></input></td>
+							    <td><input uib-popover="Enter an 'x'" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="emp.box19ddec"></input></td>
 							  </tr>
 							</table>
 						</div>

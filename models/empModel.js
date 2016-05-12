@@ -6,7 +6,7 @@ var empSchema = new mongoose.Schema({
 	city: {type: String},
 	state: {type: String},
 	zip: {type: String},
-	ssn: {type: String},
+	ssn: {type: Number},
 	planstartmonth: {type: String},
 	box14all: {type: String},
 	box14jan: {type: String},
