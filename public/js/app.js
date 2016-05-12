@@ -27,6 +27,10 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
 			.state('forms', {
 				url: '/forms',
 				templateUrl: './views/forms.html'
+			})
+			.state('upload', {
+				url: '/upload',
+				templateUrl: './views/upload.html'
 			});
 
 	});
