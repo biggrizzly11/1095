@@ -1,118 +1,9 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var session = require('express-session');
-var LocalStrategy = require('passport-local').Strategy;
-var pdffiller = require('pdffiller');
-
-
-// Controllers
-var compCtrl = require('./controllers/compCtrl.js');
-var empCtrl = require('./controllers/empCtrl.js');
-
-// Models
-// var User = require('./models/compModel.js');
-var User = require('./models/UserModel');
-
-// Policies
-var isAuthed = function(req, res, next) {
-	// console.log(req);
-  if (!req.isAuthenticated()) return res.status(401).send();
-  return next();
-};
-
-// Passport
-passport.use(new LocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password'
-}, function(email, password, done) {
-  User.findOne({ email: email })
-  .exec(function(err, user) {
-    if(err) done(err);
-    if(!user) return done(null, false);
-    if(user.verifyPassword(password)) return done(null, user);
-    return done(null, false);
-  });
-}));
-
-passport.serializeUser(function(user, done) {
-  done(null, user._id);
-});
-passport.deserializeUser(function(_id, done) {
-  User.findById(_id, function(err, user) {
-    done(err, user);
-  });
-});
-
-// Express
-
-var app = express();
-app.use(bodyParser.json());
-
-app.use(express.static(__dirname + '/public'));
-
-
-
-app.use(session({
-	secret: 'poop',
-	saveUninitialized: true,
-	resave: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Login
-
-app.get('/users', compCtrl.getUser);
-app.post('/users', compCtrl.register);
-app.get('/me', isAuthed, compCtrl.me);
-app.post('/login', passport.authenticate('local', {
-	successRedirect: '/me'
-}));
-app.get('/logout', function(req, res) {
-	req.logout();
-	return res.status(200).send('Logged Out');
-});
-
-
-// company endpoints
-
-app.post('/api/comp', compCtrl.compCreate);
-app.get('/api/comp', compCtrl.compRead);
-app.put('/api/comp', compCtrl.compUpdate);
-app.delete('/api/comp', compCtrl.compDelete);
-app.post('/api/comp/:id', compCtrl.compAddEmp);
-app.get('/api/total/:id', compCtrl.getTotal);
-
-// Emp endpoints
-
-app.post('/api/emp', empCtrl.empCreate);
-app.get('/api/emp', empCtrl.empRead);
-app.put('/api/emp', empCtrl.empUpdate);
-app.delete('/api/emp', empCtrl.empDelete);
-
-
-// Connection
-
-mongoose.connect('mongodb://localhost/health');
-mongoose.connection.once('open', function() {
-	console.log('Connected to mongodb health');
-});
-
-var port = 3000;
-app.listen(port, function() {
-	console.log('Listening on port ' + port);
-});
-
-
-
 var data = {
 'topmostSubform[0].Page1[0].c1_01_VOID[0]': '',
 'topmostSubform[0].Page1[0].c1_02_CORRECTED[0]': '',
-'topmostSubform[0].Page1[0].EmployeeName[0].f1_002[0]': 'Poop',
+'topmostSubform[0].Page1[0].EmployeeName[0].f1_002[0]': '',
 'topmostSubform[0].Page1[0].EmployeeName[0].f1_003[0]': '',
-'topmostSubform[0].Page1[0].EmployeeName[0].f1_004[0]': 'More Poop',
+'topmostSubform[0].Page1[0].EmployeeName[0].f1_004[0]': '',
 'topmostSubform[0].Page1[0].EmployeeName[0].f1_005[0]': '',
 'topmostSubform[0].Page1[0].EmployeeName[0].f1_006[0]': '',
 'topmostSubform[0].Page1[0].EmployeeName[0].f1_007[0]': '',
@@ -298,7 +189,7 @@ var data = {
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].f2_07[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].f2_08[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].f2_09[0]': '',
-'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].c2_27[0]': 'X',
+'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].c2_27[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].c2_28[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].c2_29[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow3[0].c2_30[0]': '',
@@ -331,8 +222,8 @@ var data = {
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].f2_13[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].f2_14[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_53[0]': '',
-'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_54[0]': 'Yes',
-'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_55[0]': 'YES',
+'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_54[0]': '',
+'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_55[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_56[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_57[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow5[0].c2_58[0]': '',
@@ -457,60 +348,4 @@ var data = {
 'topmostSubform[0].Page3[0].Table_Part4[0].BodyRow12[0].c2_156[0]': '',
 'topmostSubform[0].Page3[0].Table_Part4[0]': '',
 'topmostSubform[0]': '',
-};
-
-var sourcePdf = 'f1095c.pdf';
-var desPdf = 'f1095cnew.pdf';
-pdffiller.fillForm(sourcePdf, desPdf, data, function(err) {
-
-});
-//app.post('/login', 
-// 	passport.authenticate('local', {
-// 		successRedirect: '/getCurrentUser',
-// 		failureRedirect: '/loginFailure'
-// 	})
-// );
-
-// app.get('/loginFailure', function(req, res) {
-// 	console.log('Fail');
-// 	res.send('Failded to Authenticate');
-// });
-
-// app.get('/getCurrentUser', compCtrl.compRead);
-
-// app.get('/loginSuccess', function(req, res) {
-// 	res.send('Successfully Authenticated');
-// });
-
-// passport.serializeUser(function(user, done) {
-// 	done(null, user);
-// });
-
-// passport.deserializeUser(function(obj, done) {
-// 	done(null, obj);
-// });
-
-// passport.use(new LocalStrategy(function(username, password, done) {
-// 	// console.log(username);
-// 	// console.log(password);
-// 	process.nextTick(function() {
-// 		//Auth Check Login
-// 		compSchema.findOne({
-// 			username : username,
-// 		}, function(err, user) {
-// 			if (err) {
-// 				return done(err);
-// 			}
-
-// 			if (!user) {
-// 				return done(null, false);
-// 			} 
-
-// 			if (user.password != password) {
-// 				return done(null, false);
-// 			}
-// 			// console.log("success!");
-// 			return done(null, user);
-// 		});
-// 	});
-// }));
+}

@@ -2,13 +2,18 @@
  <div class="container modalContainer">
          <div class="row">
             <div class="col-md-6">
-				<div class="login" ng-controller="loginController">
+				<div class="login">
 				<h1>Welcome. Please Login.</h1>
 					<form>
-						<input placeholder="Username" ng-model="user.username"></input>
-						<input placeholder="Password" ng-model="user.password"></input>
-						<a ui-sref="company"><button ng-click="postLogin(user)">Login</button></a>
+						<input type="text" placeholder="Email" ng-model="credentials.email"></input>
+						<input type="password" placeholder="Password" ng-model="credentials.password"></input>
+						<a ui-sref="company"><button ng-click="login()">Login</button></a>
 					</form>
+
+					<input type="text" ng-model="newUser.name" placeholder="name">
+					<input type="text" ng-model="newUser.email" placeholder="email">
+					<input type="password" ng-model="newUser.password" placeholder="password">
+					<button type="button" ng-click="register()">register</button>
 				</div>
 			</div>
 		<!-- 	  <div class="col-md-6">

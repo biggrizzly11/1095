@@ -3,19 +3,23 @@
 <div class="container content-md ">
          <div class="row">
             <div class="col-md-12">
-				<div ng-controller="loginController">
+				<div>
 				<title>Login</title>
 				<p>Login</p>
 
 					<form>
-						<input placeholder="Username" ng-model="user.username"></input>
-						<input placeholder="Password" ng-model="user.password"></input>
-						<a ui-sref="company"><button ng-click="postLogin(user)">Login</button></a>
-						{{test}}
-						{{emp}}
+						<input type="text" placeholder="Email" ng-model="credentials.email"></input>
+						<input type="password" placeholder="Password" ng-model="credentials.password"></input>
+						<button ng-click="login()">Login</button>
 					</form>
 
-    				<button type="button" class="btn btn-default" ng-click="modalLogin()">Open me!</button>
+    				<!-- <button type="button" class="btn btn-default" ng-click="modalLogin()">Open me!</button> -->
+
+    				
+					<input type="text" ng-model="newUser.name" placeholder="name">
+					<input type="text" ng-model="newUser.email" placeholder="email">
+					<input type="password" ng-model="newUser.password" placeholder="password">
+					<button type="button" ng-click="register()">register</button>
 
 				</div>
         </div>

@@ -1,8 +1,8 @@
 angular.module('app')
-	.directive('myFooter', function() {
+	.directive('my1095', function() {
 
 		return {
-			templateUrl: '../views/emp.html',
+			templateUrl: '../views/forms.html',
 			controller: 'compController'
 		};
 

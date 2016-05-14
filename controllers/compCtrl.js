@@ -1,5 +1,6 @@
 var Comp = require('../models/compModel');
 var Emp = require('../models/empModel');
+var User = require('../models/UserModel');
 
 module.exports = {
 	compCreate: function(req, res) {
@@ -93,6 +94,34 @@ module.exports = {
 				res.status(200).json(s.emp.length);
 			}
 		});
+	},
+
+	me: function(req, res) {
+		// console.log(req);
+		if (!req.user) return res.status(401).send('Current User Not Defined');
+		req.user.password = null;
+		return res.status(200).json(req.user);
+	},
+
+	register: function(req, res) {
+		User.create(req.body, function(err, result) {
+			if(err) return res.status(500).send(err);
+			newUser = result.toObject();
+			newUser.password = null;
+			res.status(200).json(newUser);
+		});
+	},
+
+// For Testing purposes
+	getUser: function(req, res) {
+		User.find({})
+			.exec(function(err, s) {
+				if (err) {
+					res.status(500).json(err);
+				} else {
+					res.status(200).json(s);
+				}
+			});
 	}
 
 };

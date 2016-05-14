@@ -1,7 +1,16 @@
 angular.module('app')
-	.controller('compController', function($scope, compService) {
+	.controller('compController', function($scope, compService, loginService, $state) {
 
-		$scope.test = 'test';
+		
+
+		var start = function() {
+			loginService.getUser().then(function(response){
+				if (response._id) {
+					$scope.user = response;
+					$state.go('company');
+				}
+			});
+		}();
 
 
 		$scope.getComp = function() {
@@ -18,16 +27,23 @@ angular.module('app')
 			console.log(comp);
 			compService.addComp(comp).then(function(comp){
 				alert("Congrats your signed up!");
+				$scope.comp = {};
 			});
 		};
 
-		var emp = {}; 
+		$scope.emp = {}; 
 		$scope.addEmp = function(emp) {
-			console.log(emp);
+			// console.log(emp);
 			compService.addEmp(emp).then(function(emp) {
 				// alert('Congrats ');
+				$scope.emp = {};
 			});
 		};
 
+		$scope.logout = function() {
+			loginService.logout().then(function(response) {
+				$state.go('home');
+			});
+		};
 
 	});

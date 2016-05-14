@@ -10,29 +10,34 @@
                  <uib-tabset active="activeJustified" justified="true">
 					    <uib-tab index="0" heading="Why use us?">Why use us?</uib-tab>
 					    <uib-tab index="1" heading="Sign Up Instructions">Sign Up Instructions</uib-tab>
-					    <!-- <uib-tab index="2" heading="Part III">Part Three Instructions</uib-tab> -->
-					   <!--  <uib-tab index="3" heading="Long Justified">More Content</uib-tab> -->
   				</uib-tabset>
             </div>
             <div class="col-md-6">
-               	<div ng-controller="compController">
+               	<div>
 					<h1 class="signupHead">Sign Up for 1095</h1>  
 					<form>
-						<input class="signupInput" placeholder="Company Name" ng-model="comp.compName"></input><br>
-						<input class="signupInput" placeholder="Address" ng-model="comp.address"></input><br>
-						<input class="signupInput" placeholder="City" ng-model="comp.city"></input><br>
-						<input class="signupInput" placeholder="State" ng-model="comp.state"></input><br>
-						<input class="signupInput" placeholder="Zip" ng-model="comp.zip"></input><br>
-						<input class="signupInput" placeholder="Phone" ng-model="comp.phone"></input><br>
-						<input class="signupInput" placeholder="Email" ng-model="comp.email"></input><br>
-						<input class="signupInput" placeholder="EIN" ng-model="comp.ein"></input><br>
-						<input class="signupInput" placeholder="Password" ng-model="comp.password"></input><br>
-						<button class="signupButton" ng-click="addComp(comp)">Sign Up</button>
+						<input class="signupInput" placeholder="Company Name" ng-model="newUser.name"></input><br>
+						<input class="signupInput" placeholder="Address" ng-model="newUser.address"></input><br>
+						<input class="signupInput" placeholder="City" ng-model="newUser.city"></input><br>
+						<input class="signupInput" placeholder="State" ng-model="newUser.state"></input><br>
+						<input class="signupInput" placeholder="Zip" ng-model="newUser.zip"></input><br>
+						<input class="signupInput" placeholder="Phone" ng-model="newUser.phone"></input><br>
+						<input class="signupInput" placeholder="Email" ng-model="newUser.email"></input><br>
+						<input class="signupInput" placeholder="EIN" ng-model="newUser.ein"></input><br>
+						<input type="text" class="signupInput" placeholder="Password" ng-model="newUser.password"></input><br>
+						<button class="signupButton" ng-click="register()">Sign Up</button>
 					</form>
 				</div>
             </div>
         </div>
 </div>
+
+					<!-- <form>
+						<input type="text" ng-model="newUser.name" placeholder="name"></input>
+						<input type="text" ng-model="newUser.email" placeholder="Email"></input>
+						<input type="text" ng-model="newUser.password" placeholder="Password"></input>
+						<button ng-click="register()">Sign Up</button>
+					</form> -->
 <!-- <div>
 		<h2>Login</h2>
 		<form>

@@ -1,7 +1,7 @@
 angular.module('app', ['ui.router', 'ui.bootstrap'])
 	.config(function($stateProvider, $urlRouterProvider){
 
-		// $urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
 			.state('home', {
@@ -10,15 +10,18 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
 			})
 			.state('company', {
 				url: '/company',
-				templateUrl: './views/company.html'
+				templateUrl: './views/company.html',
+				controller: 'compController',
 			})
 			.state('signup', {
 				url: '/signup',
-				templateUrl: './views/signup.html'
+				templateUrl: './views/signup.html',
+				controller: 'loginController'
 			})
 			.state('login', {
 				url: '/login',
-				templateUrl: './views/login.html'
+				templateUrl: './views/login.html',
+				controller: 'loginController'
 			})
 			.state('emp', {
 				url: '/emp',

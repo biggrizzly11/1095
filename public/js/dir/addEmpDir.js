@@ -1,5 +1,5 @@
 angular.module('app')
-	.directive('myFooter', function() {
+	.directive('myEmp', function() {
 
 		return {
 			templateUrl: '../views/emp.html',
