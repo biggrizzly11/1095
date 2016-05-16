@@ -47,6 +47,7 @@ var empSchema = new mongoose.Schema({
 	box16oct: {type: String, default: ''},
 	box16nov: {type: String, default: ''},
 	box16dec: {type: String, default: ''},
+	coveredIndiividualsX: {type: String, default: ''},
 	box17aname: {type: String, default: ''},
 	box17bssn: {type: String, default: ''},
 	box17cdob: {type: String, default: ''},
@@ -143,6 +144,8 @@ var empSchema = new mongoose.Schema({
 	box22doct: {type: String, default: ''},
 	box22dnov: {type: String, default: ''},
 	box22ddec: {type: String, default: ''},
+	partIIIname: {type: String, default: ''},
+	partIIIssn: {type: String, default: ''},
 });
 
 module.exports = mongoose.model("Emp", empSchema);
