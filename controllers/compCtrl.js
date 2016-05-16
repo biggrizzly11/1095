@@ -52,11 +52,11 @@ module.exports = {
 	},
 
 	compAddEmp: function(req, res) {
-		Comp.findById(req.params.id, function(err1, res1) {
+		User.findById(req.params.id, function(err1, res1) {
 			var comp = res1;
 			comp.emp.push(req.body);
-			console.log(req.body);
-			Comp.findByIdAndUpdate(comp._id, comp, function(err2, res2) {
+			// console.log(req.body);
+			User.findByIdAndUpdate(comp._id, comp, function(err2, res2) {
 				if (err2) {
 				res.status(500).json(err2);
 				} else	{
@@ -111,6 +111,24 @@ module.exports = {
 			res.status(200).json(newUser);
 		});
 	},
+
+// Testing
+	getCompData: function(req, res) {
+		Comp.findById(req.params.id).populate({path: 'emp', select: 'name'}).exec( function(err1, res1) {
+			var comp = res1;
+			console.log("Comp", comp);
+			// console.log("Req.body" + req.body);
+			var compName = res1.compName;
+			console.log("Company Name: " + compName);
+
+
+			// var empName = (res1).populate({path: 'emp', select: 'name'});
+			console.log('empName: ' + res1.emp[0].name);
+
+
+		});
+	},
+
 
 // For Testing purposes
 	getUser: function(req, res) {

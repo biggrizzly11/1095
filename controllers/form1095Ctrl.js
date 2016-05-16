@@ -4,87 +4,88 @@ var pdffiller = require('pdffiller');
 module.exports = {
 
 	get1095: function(req, res) {
-		User.findById(req.params.id).populate({path: 'emp', select: 'name'}).exec( function(err1, res1) {
+		User.findById(req.params.id).populate({path: 'emp', select: 'name address city state zip ssn planstartmonth box14all box14feb box14jan box14mar box14apr box14may box14june box14july box14aug box14sept box14oct box14nov box14dec'}).exec( function(err1, res1) {
 			var comp = res1;
 			console.log("Comp", comp);
 			// console.log("Req.body" + req.body);
 			var compName = res1.compName;
-			console.log("Company Name: " + compName);
+			console.log("Company Name: " + comp.name);
 
 
 			// var empName = (res1).populate({path: 'emp', select: 'name'});
 			var name = res1.emp[0].name;
 			// var address = res1.emp[0].address;
-			console.log('empName: ' + res1.emp[0].name);
-
+			// console.log('empName: ' + res1.emp[0].name);
+			// console.log('Company Name' + res1.compName);
 			for (var i = 0; i < res1.emp.length; i++) {
-				var name1 = res1.emp[i].name;
-				console.log(res1.emp[i].name);
-			
+				var emp = comp.emp[i];
+				var address = comp.emp[i].address;
+				// console.log('Social Number: ' + emp.address);
+				console.log('box 14: ' + emp.box14mar);			
 
 			var data = {
-						'nameofemp': '',
-						'SSN': '',
-						'nameofcomp': name1,
-						'EIN': '',
-						'empAdress': '',
-						'compAddress': '',
-						'compphone': '',
-						'empcity': '',
-						'state': '',
-						'zip': '',
-						'compcity': '',
-						'compState': '',
-						'compzip': '',
-						'startmonth': '',
-						'14all': '',
-						'14feb': '',
-						'14jan': '',
-						'14mar': '',
-						'14apr': '',
-						'14may': '',
-						'14june': '',
-						'14july': '',
-						'14aug': '',
-						'14sept': '',
-						'14oct': '',
-						'14nov': '',
-						'14dec': '',
-						'16all': '',
-						'16jan': '',
-						'16feb': '',
-						'16mar': '',
-						'16apr': '',
-						'16may': '',
-						'16june': '',
-						'16july': '',
-						'16aug': '',
-						'16sept': '',
-						'16oct': '',
-						'16nov': '',
-						'16dec': '',
-						'15all': '',
-						'15feb': '',
-						'15jan': '',
-						'15june': '',
-						'15mar': '',
-						'15apr': '',
-						'15may': '',
-						'15july': '',
-						'15aug': '',
-						'15sept': '',
-						'15oct': '',
-						'15nov': '',
-						'15dec': '',
-						'coveredIndiividualsX': '',
-						'17name': '',
-						'18name': '',
-						'19name': '',
-						'20name': '',
-						'21name': '',
-						'2name': '',
-						'17ssn': '',
-						'18ssn': '',
+						'nameofemp': emp.name,
+						'SSN': emp.ssn,
+						'nameofcomp': comp.name,
+						'EIN': res1.ein,
+						'empAdress': emp.address,
+						'compAddress': comp.address,
+						'compphone': comp.phone,
+						'empcity': emp.city,
+						'state': emp.state,
+						'zip': emp.zip,
+						'compcity': comp.city,
+						'compState': comp.state,
+						'compzip': comp.zip,
+						'startmonth': emp.planstartmonth,
+						'14all': emp.box14all,
+						'14feb': emp.box14feb,
+						'14jan': emp.box14jan,
+						'14mar': emp.box14mar,
+						'14apr': emp.box14apr,
+						'14may': emp.box14may,
+						'14june': emp.box14june,
+						'14july': emp.box14july,
+						'14aug': emp.box14aug,
+						'14sept': emp.box14sept,
+						'14oct': emp.box14oct,
+						'14nov': emp.box14nov,
+						'14dec': emp.box14dec,
+						'16all': emp.box16all,
+						'16jan': emp.box16jan,
+						'16feb': emp.box16feb,
+						'16mar': emp.box16mar,
+						'16apr': emp.box16apr,
+						'16may': emp.box16may,
+						'16june': emp.box16june,
+						'16july': emp.box16july,
+						'16aug': emp.box16aug,
+						'16sept': emp.box16sept,
+						'16oct': emp.box16oct,
+						'16nov': emp.box16nov,
+						'16dec': emp.box16dec,
+						'15all': emp.box15all,
+						'15feb': emp.box15feb,
+						'15jan': emp.box15jan,
+						'15june': emp.box15june,
+						'15mar': emp.box15mar,
+						'15apr': emp.box15apr,
+						'15may': emp.box15may,
+						'15july': emp.box15july,
+						'15aug': emp.box15aug,
+						'15sept': emp.box15sept,
+						'15oct': emp.box15oct,
+						'15nov': emp.box15nov,
+						'15dec': emp.box15dec,
+						'coveredIndiividualsX': emp.coveredIndiividualsX,
+						'17name': emp.box17aname,
+						'18name': emp.box18aname,
+						'19name': emp.box19aname,
+						'20name': emp.box20aname,
+						'21name': emp.box21aname,
+						'2name': emp.box22aname,
+						'17ssn': emp.box17bssn,
+						'18ssn': emp.box18bssn,
 						'19ssn': '',
 						'20ssn': '',
 						'21ssn': '',
@@ -370,7 +371,7 @@ module.exports = {
 						};
 
 			var sourcePdf = 'f1095c.pdf';
-			var desPdf = 'f1095'+ res1.emp[i]._id + '.pdf';
+			var desPdf = 'public/styles/pdf/f1095'+ res1.emp[i]._id + '.pdf';
 			pdffiller.fillForm(sourcePdf, desPdf, data, function(err) {
 
 				}); 

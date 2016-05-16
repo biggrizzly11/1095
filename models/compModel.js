@@ -2,16 +2,16 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 var Comp = new mongoose.Schema({
-	compName: {type: String},
-	address: {type: String},
-	city: {type: String},
-	state: {type: String},
-	zip: {type: String},
-	phone: {type: String},
-	email: {type: String, index: true, trim: true},
-	ein: {type: String},
-	username: {type: String},
-	password: {type: String},
+	compName: {type: String, default: ''},
+	address: {type: String, default: ''},
+	city: {type: String, default: ''},
+	state: {type: String, default: ''},
+	zip: {type: String, default: ''},
+	phone: {type: String, default: ''},
+	email: {type: String, index: true, trim: true, default: ''},
+	ein: {type: String, default: ''},
+	username: {type: String, default: ''},
+	password: {type: String, default: ''},
 	emp: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
