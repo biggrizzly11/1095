@@ -52,6 +52,7 @@ module.exports = {
 	},
 
 	compAddEmp: function(req, res) {
+		console.log(req.body);
 		User.findById(req.params.id, function(err1, res1) {
 			var comp = res1;
 			comp.emp.push(req.body);
@@ -66,7 +67,29 @@ module.exports = {
 		});
 	},
 
+// test creating a new employee
+	compNewEmp: function(req, res) {
+		var newEmp = new Emp(req.body);
+		console.log('newEmp:' + newEmp);
+		User.findById(req.params.id, function(err1, res1) {
+			var comp = res1;
+			
+			newEmp.save();
+			comp.emp.push(newEmp);
+				// console.log(req.body);
+				// console.log(newEmp);
+			User.findByIdAndUpdate(comp._id, comp, function(err2, res2) {
+				if (err2) {
+				res.status(500).json(err2);
+				} else	{
+					res.status(200).json(res2);
+				}
+			});
+		});
+	},
+
 	getCurrentUser: function(req, res) {
+
 		// console.log(req);
 		if (req.user) {
 			res.status(200).send(req.user);
@@ -98,6 +121,8 @@ module.exports = {
 
 	me: function(req, res) {
 		// console.log(req);
+		// var userpop = (req.user).populate({path: 'emp', select: 'name'});
+		// console.log(userpop);
 		if (!req.user) return res.status(401).send('Current User Not Defined');
 		req.user.password = null;
 		return res.status(200).json(req.user);
@@ -132,7 +157,7 @@ module.exports = {
 
 // For Testing purposes
 	getUser: function(req, res) {
-		User.find({})
+		User.find({}).populate({path: 'emp', select: 'name'})
 			.exec(function(err, s) {
 				if (err) {
 					res.status(500).json(err);

@@ -7,6 +7,9 @@ angular.module('app')
 			loginService.getUser().then(function(response){
 				if (response._id) {
 					$scope.user = response;
+					console.log(response);
+					$scope.userid = response._id;
+					$scope.emps = response.emp;
 					$state.go('company');
 				}
 			});
@@ -21,10 +24,9 @@ angular.module('app')
 		};
 
 		$scope.getComp();
-
+	
 		$scope.comp = {};
 		$scope.addComp = function(comp) {
-			console.log(comp);
 			compService.addComp(comp).then(function(comp){
 				alert("Congrats your signed up!");
 				$scope.comp = {};
@@ -32,9 +34,11 @@ angular.module('app')
 		};
 
 		$scope.emp = {}; 
-		$scope.addEmp = function(emp) {
+		$scope.addEmp = function(emp, userid) {
+			// console.log(userid);
+			// console.log(user);
 			// console.log(emp);
-			compService.addEmp(emp).then(function(emp) {
+			compService.addEmp(emp, userid).then(function(emp, userid) {
 				// alert('Congrats ');
 				$scope.emp = {};
 			});

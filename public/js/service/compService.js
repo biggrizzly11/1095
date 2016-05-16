@@ -26,10 +26,10 @@ angular.module('app')
 			});
 		};
 
-		this.addEmp = function(emp) {
+		this.addEmp = function(emp, userid) {
 			return $http ({
 				method: 'POST',
-				url: '/api/emp',
+				url: '/api/newemp/' + userid,
 				data: emp
 			});
 		};
