@@ -10,11 +10,18 @@ angular.module('app')
 					console.log(response);
 					$scope.userid = response._id;
 					$scope.emps = response.emp;
+					// $scope.pdf ='../styles/pdf/f1095' +  response.emp[0] + '.pdf';
+					// console.log('pdf: ' + pdf);
+					// var pdf = {};
+					// var leg = response.emp.length;
+					// for (var i = 0; i < leg; i++) {
+					// 	pdf = leg[i].pop();
+					// }
+					// console.log(pdf);
 					$state.go('company');
 				}
 			});
 		}();
-
 
 		$scope.getComp = function() {
 			compService.getComp().then(function(res) {
@@ -48,6 +55,18 @@ angular.module('app')
 			loginService.logout().then(function(response) {
 				$state.go('home');
 			});
+		};
+
+		$scope.deleteEmp = function(empid) {
+			compService.deleteEmp(empid).then(function(response) {
+				alert('Employee Deleted');
+			});
+		};
+
+		$scope.pdf = function(empid) {
+			var pdflink = '../styles/pdf/f1095' + empid + '.pdf';
+			$scope.cool = pdflink;
+			console.log(pdflink);
 		};
 
 	});

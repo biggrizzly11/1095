@@ -13,7 +13,7 @@ var empCtrl = require('./controllers/empCtrl.js');
 var form1095Ctrl = require('./controllers/form1095Ctrl.js');
 
 // Models
-// var User = require('./models/compModel.js');
+// var Emp = require('./models/empModel.js');
 var User = require('./models/UserModel');
 
 // Policies
@@ -29,6 +29,7 @@ passport.use(new LocalStrategy({
   passwordField: 'password'
 }, function(email, password, done) {
   User.findOne({ email: email })
+
   .exec(function(err, user) {
     if(err) done(err);
     if(!user) return done(null, false);
@@ -92,7 +93,7 @@ app.post('/api/newemp/:id', compCtrl.compNewEmp);
 app.post('/api/emp', empCtrl.empCreate);
 app.get('/api/emp', empCtrl.empRead);
 app.put('/api/emp', empCtrl.empUpdate);
-app.delete('/api/emp', empCtrl.empDelete);
+app.delete('/api/emp/:id', empCtrl.empDelete);
 
 // Forms
 

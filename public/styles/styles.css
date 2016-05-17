@@ -161,7 +161,29 @@ body {
 	padding-right: 10px;
 }
 
+#dropCSV, #dropJSON {
+	height:200px;
+	background-color:#eec;
+	font-size:x-large;
+	font-family:monospace;
+}
+#dropCSV { width:330px; }
+#dropJSON { width:770px; }
 
+#jsonoutput, #csvoutput {
+	height:200px;
+	background-color:#ece;
+	font-size:x-large;
+	font-family:monospace;
+}
+#jsonoutput { width:770px; }
+#csvoutput { width:330px; }
+
+label {
+	font-weight:bold;
+	font-size:large;
+	display:block;
+}
 
 
 

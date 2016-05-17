@@ -34,4 +34,11 @@ angular.module('app')
 			});
 		};
 
+		this.deleteEmp = function(empid) {
+			return $http ({
+				method: 'DELETE',
+				url: '/api/emp/' + empid
+			});
+		};
+
 	});

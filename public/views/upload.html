@@ -1,5 +1,3 @@
-{{user}}
-
 <h1>Drag and Drop CSV File</h1>
 <label for="hasHeaders">CSV has Headers: <input type="checkbox" id="hasHeaders"></label>
 <textarea id="dropCSV" readonly>
@@ -8,7 +6,7 @@ Drag & drop CSV file here.
 <textarea id="jsonoutput">
 JSON will show up here
 </textarea>
-
+<button ng-click="">Submit Data</button>
 
 <script>
 var options = {input: false};
@@ -35,6 +33,8 @@ function createJSON(str) {
 	var jsonString = JSON.stringify(jsonObject);
 	var jsonStringFormatted = jsonString.replace(/{/g,"\n\t{").replace("]","\n]");
 	jsonzone.value = jsonString;
+
+	console.log(jsonObject);
 }
 
 cbHeaders.addEventListener("click",function() {

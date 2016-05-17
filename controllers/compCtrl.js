@@ -120,12 +120,19 @@ module.exports = {
 	},
 
 	me: function(req, res) {
-		// console.log(req);
-		// var userpop = (req.user).populate({path: 'emp', select: 'name'});
-		// console.log(userpop);
 		if (!req.user) return res.status(401).send('Current User Not Defined');
-		req.user.password = null;
-		return res.status(200).json(req.user);
+		// req.user.password = null;
+		// return res.status(200).json(req.user);
+		User.findById(req.user._id)
+		.populate('emp')
+		.select('-password')
+		.exec(function(err, s) {
+			if (err) {
+					res.status(500).json(err);
+				} else {
+					res.status(200).json(s);
+				}
+		});
 	},
 
 	register: function(req, res) {
