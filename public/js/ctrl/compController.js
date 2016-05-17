@@ -69,4 +69,10 @@ angular.module('app')
 			console.log(pdflink);
 		};
 
+		$scope.genForm = function(userid) {
+			compService.genForm(userid).then(function(response) {
+				
+			});
+		};
+
 	});

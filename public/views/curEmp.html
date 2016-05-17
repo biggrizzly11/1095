@@ -1,0 +1,11 @@
+<h2>Current Employees</h2>
+
+	<div>
+		<table>
+			<tr ng-repeat="emp in emps">
+				<td>{{emp.name}}</td>
+			 	<td>{{emp.address}}</td>
+				<td><button ng-click="deleteEmp(emp._id)">Delete</button></td>
+			</tr>
+		</table>
+	</div>

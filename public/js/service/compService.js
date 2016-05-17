@@ -41,4 +41,11 @@ angular.module('app')
 			});
 		};
 
+		this.genForm = function(compid) {
+			return $http ({
+				mehtod: 'GET',
+				url: '/api/form/' + compid
+			});
+		};
+
 	});

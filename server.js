@@ -11,6 +11,7 @@ var pdffiller = require('pdffiller');
 var compCtrl = require('./controllers/compCtrl.js');
 var empCtrl = require('./controllers/empCtrl.js');
 var form1095Ctrl = require('./controllers/form1095Ctrl.js');
+var form1094Ctrl = require('./controllers/form1094Ctrl.js');
 
 // Models
 // var Emp = require('./models/empModel.js');
@@ -98,6 +99,7 @@ app.delete('/api/emp/:id', empCtrl.empDelete);
 // Forms
 
 app.get('/api/form/:id', form1095Ctrl.get1095);
+app.get('/api/form94/:id', form1094Ctrl.get1094);
 
 // Connection
 

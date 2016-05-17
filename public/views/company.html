@@ -7,19 +7,10 @@
 					<h2>Welcome {{user.name}}</h2>
 					<uib-tabset active="activeJustified" justified="true">
 					    <uib-tab index="0" heading="Current Employees">
-					  <!--   {{emps}} -->
-					  		<h2>Current Employees</h2>
+					  		<!--   {{emps}} -->
+					  		<cur-emp></cur-emp>
 
-					    	<div>
-					    		<table>
-					    			<tr ng-repeat="emp in emps">
-					    				<td>{{emp.name}}</td>
-					    				<td>{{emp.address}}</td>
-					    				<td><button ng-click="deleteEmp(emp._id)">Delete</button></td>
-					    			</tr>
-					    		</table>
-					    	</div>
-					    </uib-tab>
+					  	</uib-tab>
 					    <uib-tab index="1" heading="Add Employees">
 					    	<!-- <p>Add Employees</p> -->
 					    	<!-- {{user.name}} -->
