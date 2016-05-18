@@ -7,7 +7,7 @@ angular.module('app')
 			loginService.getUser().then(function(response){
 				if (response._id) {
 					$scope.user = response;
-					console.log(response);
+					// console.log(response);
 					$scope.userid = response._id;
 					$scope.emps = response.emp;
 					// $scope.pdf ='../styles/pdf/f1095' +  response.emp[0] + '.pdf';
@@ -47,8 +47,10 @@ angular.module('app')
 			// console.log(emp);
 			compService.addEmp(emp, userid).then(function(emp, userid) {
 				// alert('Congrats ');
+				
 				$scope.emp = {};
 			});
+			$state.reload();
 		};
 
 		$scope.logout = function() {
@@ -59,7 +61,8 @@ angular.module('app')
 
 		$scope.deleteEmp = function(empid) {
 			compService.deleteEmp(empid).then(function(response) {
-				alert('Employee Deleted');
+				// alert('Employee Deleted');
+				$state.reload();
 			});
 		};
 
@@ -71,7 +74,7 @@ angular.module('app')
 
 		$scope.genForm = function(userid) {
 			compService.genForm(userid).then(function(response) {
-				
+				$state.reload();
 			});
 		};
 
@@ -87,6 +90,8 @@ angular.module('app')
 
 			});
 
+			$state.reload();
+
 		};
 
 		
@@ -97,7 +102,11 @@ angular.module('app')
 			
 		};
 
-		$scope.uploadFile = function(file){
+		
+
+		
+		$scope.uploadFile = function(){
+			var file = $scope.file;
 			console.log('file: ' + file);
 
 

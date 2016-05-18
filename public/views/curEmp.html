@@ -1,4 +1,36 @@
-<h2>Current Employees</h2>
+<div class="container">
+	<div class="row">
+		<h2>Current Employees</h2>
+		<div class="col-md-4" ng-repeat="emp in emps">
+			<div class="col-md-12 empCard hvr-grow-shadow">
+					<div class="col-sm-6">
+						<img class="empCardImg" src="../styles/img/user.png">
+						<h4>{{emp.name}}</h4>
+					</div>
+					<div class="col-sm-6">
+						<p class="empCardAddress">Address: {{emp.address}}</p>
+						<p>City: {{emp.city}}</p>
+						<p>State: {{emp.state}}</p>
+						<p>Zip: {{emp.zip}}</p>
+						<td><button class="hvr-grow-shadow" ng-click="deleteEmp(emp._id)">Delete</button></td>
+						<!-- <button class="hvr-float-shadow">Test Button</button>
+						<a class="hvr-float-shadow" href="">Test Button</a> -->
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <img class="empCardImg" src="../styles/img/user.png">
+					<h3 class="empCardName">{{emp.name}}</h3>
+					<p class="empCardAddress">{{emp.address}}</p> -->
+
+
+
+
+
+<!-- <h2>Current Employees</h2>
 
 	<div>
 		<table>
@@ -8,4 +40,4 @@
 				<td><button ng-click="deleteEmp(emp._id)">Delete</button></td>
 			</tr>
 		</table>
-	</div>
+	</div> -->

@@ -1,33 +1,21 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<h2>Current Employees</h2>
-			<button ng-click="genForm(userid)">Gen 1095</button>
-					    	<div>
-					    		<table>
-					    			<tr ng-repeat="emp in emps">
-					    				<td>{{emp.name}}</td>
-					    				<td>{{emp.address}}</td>
-					    				<td><button ng-click="pdf(emp._id)">View PDF</button></td>
-					    				<!-- <td>{{emp._id}}</td> -->
-					    				<!-- <td><iframe ng-src="../styles/pdf/f1095{{emp._id}}.pdf"></iframe></td> -->
-					    				
-					    				<!-- <td><iframe ng-src="{{cool}}"></iframe></td> -->
-					    			</tr>
-					    		</table>
-					    		<iframe ng-src="{{cool}}"></iframe>
+		<div class="col-md-6">
+			<h2 class="formsH2">Current Employees</h2>
+			<button class="formsButton hvr-grow-shadow" ng-click="genForm(userid)">Gen 1095</button>
+					    	<div class="col-md-12" ng-repeat="emp in emps">
+					    		<div class="col-md-6">
+					    			{{emp.name}}
+					    		</div>
+					    		<div class="col-md-6">
+					    			<button class="hvr-grow-shadow" ng-click="pdf(emp._id)">View PDF</button>
+					    		</div>
 					    	</div>
+		</div>
+		<div class="col-md-6">
+
+				<iframe class="empiframe" ng-src="{{cool}}"></iframe>
+			
 		</div>
 	</div>
 </div>
-
-<div class="center">
- 			<!-- 	<div>
-	 				<p>Printable Resume</p>
-	 				<div class="container">
-	          		  	<div class="embed-responsive embed-responsive-4by3">
-	           				 <iframe class="embed-responsive-item" src="../styles/pdf/f10955730b6b5e8b50ae0122080f3.pdf"></iframe>
-	        			</div>
-	 				</div>
- 				</div> -->
- 			</div>

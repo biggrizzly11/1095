@@ -213,14 +213,14 @@
 							  </tr>
 							</table>
 						</div>
-						<button class="empButton" ng-click="updateUser(user, userid)">Submit Form 1094</button>
+						<button class="empButton hvr-grow-shadow" ng-click="updateUser(user, userid)">Submit Form 1094</button>
 					</form>
 				</div>
             </div>
 
             <div class="col-md-6">
             	<!-- <button ng-click="genForm94(userid)">Generate Form 1094</button> -->
-            	<button ng-click="pdf94(userid)">View</button>
-               	<iframe ng-src="{{pdf94}}"></iframe>
+            	<button class="form1094Button hvr-grow-shadow" ng-click="pdf94(userid)">View</button>
+               	<iframe class="iframe1094" ng-src="{{pdf94}}"></iframe>
             </div>
         </div>
