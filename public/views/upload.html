@@ -1,3 +1,9 @@
+<div ng-controller="compController">
+	<input type="file" ng-model="file"></input>
+	<button ng-click="uploadFile(file)">Submit File</button>
+</div>
+
+
 <h1>Drag and Drop CSV File</h1>
 <label for="hasHeaders">CSV has Headers: <input type="checkbox" id="hasHeaders"></label>
 <textarea id="dropCSV" readonly>

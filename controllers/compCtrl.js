@@ -162,7 +162,7 @@ module.exports = {
 	},
 
 
-// For Testing purposes
+
 	getUser: function(req, res) {
 		User.find({}).populate({path: 'emp', select: 'name'})
 			.exec(function(err, s) {
@@ -172,6 +172,16 @@ module.exports = {
 					res.status(200).json(s);
 				}
 			});
+	},
+
+	updateUser: function(req, res) {
+		User.findByIdAndUpdate(req.params.id, req.body, function(err, s) {
+			if (err) {
+					res.status(500).json(err);
+				} else {
+					res.status(200).json(s);
+				}
+		});
 	}
 
 };

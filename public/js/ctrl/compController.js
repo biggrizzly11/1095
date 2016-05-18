@@ -75,4 +75,64 @@ angular.module('app')
 			});
 		};
 
+		$scope.user = {};
+		$scope.updateUser = function(user, userid) {
+				console.log('comp: '+ user);
+				console.log('compid: ' + userid);
+			compService.updateUser(user, userid).then(function(user, userid) {
+				
+			});
+
+			compService.genForm94(userid).then(function(response){
+
+			});
+
+		};
+
+		
+
+		$scope.pdf94 = function(userid) {
+			var pdflink94 = '../styles/pdf/f1094' + userid + '.pdf';
+			$scope.pdf94 = pdflink94;
+			
+		};
+
+		$scope.uploadFile = function(file){
+			console.log('file: ' + file);
+
+
+			//var csv is the CSV file with headers
+				// function csvJSON(csv){
+
+				//   var lines=csv.split("\n");
+
+				//   var result = [];
+
+				//   var headers=lines[0].split(",");
+
+				//   for(var i=1;i<lines.length;i++){
+
+				// 	  var obj = {};
+				// 	  var currentline=lines[i].split(",");
+
+				// 	  for(var j=0;j<headers.length;j++){
+				// 		  obj[headers[j]] = currentline[j];
+				// 	  }
+
+				// 	  result.push(obj);
+
+				//   }
+				  
+				//   //return result; //JavaScript object
+				//   return JSON.stringify(result); //JSON
+				// }
+		};
+
+		// $scope.genForm94 = function(userid) {
+		// 	console.log('userid: ' + userid);
+		// 	compService.genForm94(userid).then(function(response){
+
+		// 	});
+		// };
+
 	});

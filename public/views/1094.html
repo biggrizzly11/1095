@@ -1,0 +1,226 @@
+<div class="container containeremp">
+         <div class="row">
+            <div class="col-md-6">
+
+                <h1 class="home1">Instructions for Filling out form 1094-C</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam, et imperdiet sem. Nam vulputate odio tortor.</p><br>
+
+                 <uib-tabset active="activeJustified" justified="true">
+					    <uib-tab index="0" heading="Part I">
+					    	<ul class="empPartI">
+					    		<li class="empPartIli">Name - Enter full name</li>
+					    		<li class="empPartIli">Address - Enter full address, make sure to include the apartment no.</li>
+					    		<li class="empPartIli">City - Enter applicable city</li>
+					    		<li class="empPartIli">State - Enter applicable state</li>
+					    		<li class="empPartIli">Zip - Enter applicable zip</li>
+					    		<li class="empPartIli">Phone - Enter phone with dashes</li>
+					    		<li class="empPartIli">Social Security Number - Enter SSN with dashes</li>
+					    	</ul>
+					    </uib-tab>
+					    <uib-tab index="1" heading="Part II">
+					    	<ul class="empPartII">
+					    		<li class="empPartIIli">Health plan start month - Enter a 2-digit number for start month. For example if the plan started in January, enter 01.</li>
+					    		<li class="empPartIIli">Offer of Coverage - Enter one of the following codes "1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1I" for all applicable boxes</li>
+					    		<li class="empPartIIli">Employee Share - Enter the share of lowest cost monthly premium</li>
+					    		<li class="empPartIIli">Applicable Section 4980H Safe Harbor - Employee offer and coverage of section 4980H Safe Harbor Code.  The code must be entered as one of the following "2A, 2B, 2C, 2D, 2E, 2F, 2G, 2HI"</li>
+					    	</ul>
+					    </uib-tab>
+					    <uib-tab index="2" heading="Part III">
+					    	<div class="empPartIII">
+					    		<h3 class="empPartIIIh3">If Employer provided self-insured coverage</h3>
+					    	<ul>
+					    		<li class="empPartIIIli">Name - Enter full name</li>
+					    		<li class="empPartIIIli">Social Security Number - Enter SSN with dashes </li>
+					    		<li class="empPartIIIli">Date of Birth - Enter if SSN was not avaliable</li>
+					    		<li class="empPartIIIli">Covered Months - Enter an "X" for all applicable fields</li>
+					    	</ul>
+					    	</div>
+					    </uib-tab>
+					   <!--  <uib-tab index="3" heading="Long Justified">More Content</uib-tab> -->
+  				</uib-tabset>
+  				<div ng-controller="compController">
+					<h2>Add New Employee</h2>
+					<h2>Part I</h2>
+					<hr>
+					<hr>
+					<form class="empForm">
+						<div>
+							<input class="empInput" placeholder="Name of ALE Member" ng-model="user.name"></input><br>
+							<input class="empInput" placeholder="Street Address (including apartment no.)" ng-model="user.address"></input><br>
+							<input class="empInput" placeholder="City or Town" ng-model="user.city"></input><br>
+							<input class="empInput" placeholder="State" ng-model="user.state"></input><br>
+							<input class="empInput" placeholder="Zip" ng-model="user.zip"></input><br>
+							<input class="empInput" placeholder="Phone" ng-model="user.phone"></input><br>
+							<input class="empInput" placeholder="Email" ng-model="user.email"></input>
+							<input class="empInput" placeholder="ein" ng-model="user.ein"></input>
+							<input class="empInput" placeholder="Name of person to contact" ng-model="user.contName"></input>
+							<input class="empInput" placeholder="Contact telephone number" ng-model="user.contNum"></input>
+							<input class="empInput" placeholder="Contact Address" ng-model="user.contAddress"></input>
+							<input class="empInput" placeholder="Contact City" ng-model="user.contCity"></input>
+							<input class="empInput" placeholder="Contact State" ng-model="user.contState"></input>
+							<input class="empInput" placeholder="Contact Zip" ng-model="user.contzip"></input><input class="empInput" placeholder="Name of Designated Government Entity" ng-model="user.govEntity"></input>
+							<input class="empInput" placeholder="Total number of forms" ng-model="user.totalnumber"></input>
+							<input class="empInput" placeholder="Authoritative Transmittal" ng-model="user.transmittalX"></input>
+						</div>
+						<br>
+				
+						<div>
+							<h2>Part II</h2>
+							<hr>
+							<hr>
+							<input  uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter"class="empInput" placeholder="Are you a member of an Aggregated ALE group?" ng-model="user.isALEmembyes"></input>
+							<input  uib-popover="Enter 'X' if No" popover-trigger="mouseenter"class="empInput" placeholder="Are you a member of an Aggregated ALE group?" ng-model="user.isALEmembno"></input>
+							<input uib-popover="Certifications of Eligibility. Enter 'X' if Qualifying Offer Method" popover-trigger="mouseenter" class="empInput" placeholder="Certifications of Eligibility" ng-model="user.elia"></input>
+							<input uib-popover="Certifications of Eligibility. Enter 'X' if Qualifying Offer method Transition Relief" popover-trigger="mouseenter" class="empInput" placeholder="Certifications of Eligibility" ng-model="user.elib"></input>
+							<input uib-popover="Certifications of Eligibility. Enter 'X' if Section 4980H Transition Relief" popover-trigger="mouseenter" class="empInput" placeholder="Certifications of Eligibility" ng-model="user.elic"></input>
+							<input uib-popover="Certifications of Eligibility. Enter 'X' if 98% Offer Method" popover-trigger="mouseenter" class="empInput" placeholder="Certifications of Eligibility" ng-model="user.elid"></input>
+							<br>
+							</br>
+						
+						</div><br>
+
+						<div>
+							<h2>Part III</h2>
+							<hr>
+							<hr>
+							<table>
+								<tr>
+									<th></th>
+									<th class="empTblHead">Min Essential Coverage Yes</th>
+									<th class="empTblHead">Min Essential Coverage No</th>
+									<th class="empTblHead">Full-Time Employee Count</th>
+									<th class="empTblHead">Total Employee Count</th>
+									<th class="empTblHead">Aggregated Group</th>
+									<th class="empTblHead">Transition Relief Indicator</th>
+								</tr>
+				
+							  <tr>
+							  	<th>All 12 Months</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="user.allYes23"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="user.allNo23"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="user.full23"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="user.total23"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="user.agg23"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="All 12" ng-model="user.sec23"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Jan</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="user.janYes24"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="user.janNo24"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="user.full24"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="user.total24"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="user.agg24"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Jan" ng-model="user.sec24"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Feb</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="user.febYes25"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="user.febNo25"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="user.full25"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="user.total25"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="user.agg25"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Feb" ng-model="user.sec25"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Mar</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="user.marYes26"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="user.marNo26"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="user.full26"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="user.total26"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="user.agg26"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Mar" ng-model="user.sec26"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Apr</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="user.aprYes27"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="user.aprNo27"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="user.full27"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="user.total27"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="user.agg27"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Apr" ng-model="user.sec27"></input></td>
+							  </tr>
+							  <tr>
+							  <th>May</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="user.mayYes28"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="user.mayNo28"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="user.full28"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="user.total28"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="user.agg28"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="May" ng-model="user.sec28"></input></td>
+							  </tr>
+							  <tr>
+							  <th>June</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="user.juneYes29"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="user.juneNo29"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="user.full29"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="user.total29"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="user.agg29"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="June" ng-model="user.sec29"></input></td>
+							  </tr>
+							  <tr>
+							  <th>July</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="user.julyYes30"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="user.julyNo30"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="user.full30"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="user.total30"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="user.agg30"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="July" ng-model="user.sec30"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Aug</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="user.augYes31"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="user.augNo31"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="user.full31"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="user.total31"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="user.agg31"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Aug" ng-model="user.sec31"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Sept</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="user.septYes32"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="user.septNo32"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="user.full32"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="user.total32"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="user.agg32"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Sept" ng-model="user.sec32"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Oct</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="user.octYes33"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="user.octNo33"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="user.full33"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="user.total33"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="user.agg33"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Oct" ng-model="user.sec33"></input></td>
+							  </tr>
+							  <tr>
+							  <th>Nov</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="user.novYes34"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="user.novNo34"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="user.full34"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="user.total34"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="user.agg34"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Nov" ng-model="user.sec34"></input></td>
+							  </tr>
+							   <tr>
+							   <th>Dec</th>
+							    <td><input uib-popover="Enter 'X' if Yes" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="user.decYes35"></input></td>
+							    <td><input uib-popover="Enter 'X' if No" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="user.decNo35"></input></td>
+							    <td><input uib-popover="Full-Time Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="user.full35"></input></td>
+							    <td><input uib-popover="Total Employee Count for ALE Member" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="user.total35"></input></td>
+							    <td><input uib-popover="Aggregated Group Indicator Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="user.agg35"></input></td>
+							    <td><input uib-popover="Section 4980H Transition Relief Indicator.  Enter 'X'" popover-trigger="mouseenter" class="empInput" placeholder="Dec" ng-model="user.sec35"></input></td>
+							  </tr>
+							</table>
+						</div>
+						<button class="empButton" ng-click="updateUser(user, userid)">Submit Form 1094</button>
+					</form>
+				</div>
+            </div>
+
+            <div class="col-md-6">
+            	<!-- <button ng-click="genForm94(userid)">Generate Form 1094</button> -->
+            	<button ng-click="pdf94(userid)">View</button>
+               	<iframe ng-src="{{pdf94}}"></iframe>
+            </div>
+        </div>

@@ -81,6 +81,7 @@ app.get('/logout', function(req, res) {
 
 // company endpoints
 
+app.put('/api/user/:id', compCtrl.updateUser);
 app.post('/api/comp', compCtrl.compCreate);
 app.get('/api/comp', compCtrl.compRead);
 app.put('/api/comp', compCtrl.compUpdate);

@@ -43,8 +43,25 @@ angular.module('app')
 
 		this.genForm = function(compid) {
 			return $http ({
-				mehtod: 'GET',
+				method: 'GET',
 				url: '/api/form/' + compid
+			});
+		};
+
+		this.genForm94 = function(userid) {
+			return $http ({
+				method: 'GET',
+				url: '/api/form94/' + userid
+			});
+		};
+
+		this.updateUser = function(user, userid) {
+			console.log('CompService: ' + user);
+			console.log('useridService: ' + userid);
+			return $http ({
+				method: 'PUT',
+				url: '/api/user/' + userid,
+				data: user
 			});
 		};
 
