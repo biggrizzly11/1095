@@ -1,7 +1,12 @@
 angular.module('app')
 	.controller('compController', function($scope, compService, loginService, $state) {
 
+		$('body').removeClass('modal-open');
+        $('div').removeClass('modal-backdrop fade in');
 		
+        $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+    	};
 
 		var start = function() {
 			loginService.getUser().then(function(response){
@@ -72,16 +77,26 @@ angular.module('app')
 			console.log(pdflink);
 		};
 
+		$scope.myVar = false;
 		$scope.genForm = function(userid) {
+			$scope.myVar = true;
+			// 	console.log(myVar);
 			compService.genForm(userid).then(function(response) {
+				// $state.reload();
+			});
+
+			compService.genForm94(userid).then(function(response){
 				$state.reload();
 			});
+
+			// $state.reload();
+
 		};
 
 		$scope.user = {};
 		$scope.updateUser = function(user, userid) {
-				console.log('comp: '+ user);
-				console.log('compid: ' + userid);
+				// console.log('comp: '+ user);
+				// console.log('compid: ' + userid);
 			compService.updateUser(user, userid).then(function(user, userid) {
 				
 			});
@@ -144,4 +159,21 @@ angular.module('app')
 		// 	});
 		// };
 
+	}).directive("ngFileSelect",function(){    
+		return {
+			link: function($scope,el){          
+				el.bind("change", function(e){          
+					$scope.file = (e.srcElement || e.target).files[0];
+
+					$scope.getFile = function () {
+						$scope.progress = 0;
+						var result = FileReader.readAsDataURL($scope.file)
+						console.log('retulst', result);
+						
+					};
+
+					$scope.getFile();
+				});          
+			}        
+		}
 	});

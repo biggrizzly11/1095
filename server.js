@@ -5,6 +5,7 @@ var passport = require('passport');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
 var pdffiller = require('pdffiller');
+var serverConfig = require('./server_config.js');
 
 
 // Controllers
@@ -109,7 +110,7 @@ mongoose.connection.once('open', function() {
 	console.log('Connected to mongodb health');
 });
 
-var port = 3000;
+var port = serverConfig.serverPort;
 app.listen(port, function() {
 	console.log('Listening on port ' + port);
 });

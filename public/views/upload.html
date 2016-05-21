@@ -1,6 +1,7 @@
-<div ng-controller="compController">
-	<input type="file" file-model="file"></input>
-	<button ng-click="uploadFile()">Submit File</button>
+<div>
+	<input type="file" file-model="file" ></input>
+	<input type="file" ng-file-select="onFileSelect($files)" >
+	<button ng-click="parseCSV()">Submit File</button>
 </div>
 
 

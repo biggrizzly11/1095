@@ -6,7 +6,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: './views/home.html'
+				templateUrl: './views/home.html',
+				controller: 'loginController'
 			})
 			.state('company', {
 				url: '/company',
@@ -33,7 +34,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
 			})
 			.state('upload', {
 				url: '/upload',
-				templateUrl: './views/upload.html'
+				templateUrl: './views/upload.html',
+				controller: 'compController'
 			});
 
 	});

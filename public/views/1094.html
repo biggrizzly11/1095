@@ -3,7 +3,7 @@
             <div class="col-md-6">
 
                 <h1 class="home1">Instructions for Filling out form 1094-C</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam, et imperdiet sem. Nam vulputate odio tortor.</p><br>
+              <!--   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eleifend purus, vel pretium tellus. Sed scelerisque malesuada lectus. Donec eget faucibus quam, et imperdiet sem. Nam vulputate odio tortor.</p><br> -->
 
                  <uib-tabset active="activeJustified" justified="true">
 					    <uib-tab index="0" heading="Part I">
@@ -213,14 +213,14 @@
 							  </tr>
 							</table>
 						</div>
-						<button class="empButton hvr-grow-shadow" ng-click="updateUser(user, userid)">Submit Form 1094</button>
+						<button class="empButton hvr-grow-shadow-gray" ng-click="updateUser(user, userid)">Submit Form 1094</button>
 					</form>
 				</div>
             </div>
 
             <div class="col-md-6">
             	<!-- <button ng-click="genForm94(userid)">Generate Form 1094</button> -->
-            	<button class="form1094Button hvr-grow-shadow" ng-click="pdf94(userid)">View</button>
+            	<button class="form1094Button hvr-grow-shadow-gray" ng-click="pdf94(userid)">View</button>
                	<iframe class="iframe1094" ng-src="{{pdf94}}"></iframe>
             </div>
         </div>
