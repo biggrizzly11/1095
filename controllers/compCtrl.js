@@ -1,6 +1,8 @@
 var Comp = require('../models/compModel');
 var Emp = require('../models/empModel');
 var User = require('../models/UserModel');
+var Converter = require('csvtojson').Converter;
+var converter = new Converter({});
 
 module.exports = {
 	compCreate: function(req, res) {
@@ -181,6 +183,13 @@ module.exports = {
 				} else {
 					res.status(200).json(s);
 				}
+		});
+	},
+
+	csvCreate: function(req, res) {
+		console.log('req.body' , req.body);
+		converter.fromString(req.body, function (err, s) {
+			console.log('S',s);
 		});
 	}
 

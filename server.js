@@ -8,6 +8,7 @@ var pdffiller = require('pdffiller');
 var serverConfig = require('./server_config.js');
 
 
+
 // Controllers
 var compCtrl = require('./controllers/compCtrl.js');
 var empCtrl = require('./controllers/empCtrl.js');
@@ -102,6 +103,9 @@ app.delete('/api/emp/:id', empCtrl.empDelete);
 
 app.get('/api/form/:id', form1095Ctrl.get1095);
 app.get('/api/form94/:id', form1094Ctrl.get1094);
+
+// csv Parser
+app.post('/api/csv', compCtrl.csvCreate);
 
 // Connection
 
